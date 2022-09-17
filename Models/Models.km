@@ -1,0 +1,33 @@
+karmem Models @packed(true) @dotnet.package(`SerializationBenchmarks.Models.KM`);
+
+enum Gender uint8 {
+    Male = 0;
+    Female = 1;
+}
+
+struct Order inline {
+    OrderId int32;
+    Item []char;
+    Quantity int32;
+    LotNumber int32;
+}
+
+struct User inline {
+    Id int32;
+    FirstName []char;
+    LastName []char;
+    FullName []char;
+    UserName []char;
+    Email []char;
+    SomethingUnique []char;
+    SomeGuid [16]byte;
+    Avatar []char;
+    CartId [16]byte;
+    SSN []char;
+    Gender Gender;
+    Orders []Order;
+}
+
+struct UserWrapper inline {
+    Users []User;
+}
