@@ -23,6 +23,7 @@ internal static class Program
 
         var binaryDataSets = b.GenerateDataSets().ToList();
         var bebopDataSets = b.GenerateBebopDataSets().ToList();
+        var karmemDataSets = b.GenerateKarmemDataSets().ToList();
         var jsonDataSets = j.GenerateDataSets().ToList();
 
         var binaryResults = new Dictionary<string, Dictionary<string, long>>(StringComparer.OrdinalIgnoreCase)
@@ -53,6 +54,11 @@ internal static class Program
         foreach (var bds in bebopDataSets)
         {
             binaryResults[bds.Name]["Bebop"] = bds.Data.Length;
+        }
+
+        foreach (var bds in karmemDataSets)
+        {
+            binaryResults[bds.Name]["Karmem"] = bds.Data.Length;
         }
 
         foreach (var jds in jsonDataSets)
